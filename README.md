@@ -5,6 +5,7 @@
 [![License](https://img.shields.io/cocoapods/l/JoyMobilitySDK.svg?style=flat)](https://cocoapods.org/pods/JoyMobilitySDK)
 
 Use JoyMobilitySDK to integrate our Carpooling service within your own App.  You can also use it to have your own white label Mobility App with just few lines of Code. The SDK is fully written in Kotlin.
+
 ![Feed](https://github.com/AlaaCherbib/JoyMobilitySDK_Android/blob/master/doc-assets/feed.png)
 ![Details](https://github.com/AlaaCherbib/JoyMobilitySDK_Android/blob/master/doc-assets/details.png)
 
