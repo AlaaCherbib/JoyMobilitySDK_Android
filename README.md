@@ -32,7 +32,7 @@ and to your App build.gradle file:
 ```ruby
     dependencies { 
         ...
-        implementation 'com.github.AlaaCherbib:JoyMobility_SDK:0.1.1'
+        implementation 'com.github.AlaaCherbib:JoyMobility_SDK:1.0'
         implementation "androidx.lifecycle:lifecycle-runtime:2.0.0"
         implementation "androidx.lifecycle:lifecycle-extensions:2.0.0"
     }
@@ -45,7 +45,12 @@ Sync the gradle, clean and build the project.
 After signing up, you will receive two json files, one is your GoogleService info file, which will be used to configure Firebase and Google maps services. this file should never be edited and must be added to your project. The second 'builder_config.json' file contains your specific keys, customer id, api keys and some config params, add this file as well to your project as it is mandatory to run the SDK.
 
 ### Customise the settings and appearance
-# YET TO BE DONE
+in builder_config.json you will be able to do the following customisations:
+
+* Enable/Disable sign up module: Depending on your use case, you can choose to use our Login feature and signup your users through our authentication services or you can choose to use your own authentication system, in this case you will have to pass the user infos to the SDK before starting using it.
+* Enable/Disable pricing: The SDK comes with a pricing feature that suggests fees for sharing the rides. you can enable/disable this feature depending on your needs.
+* Show/Hide an initial app consent screen, this screen shows a customised text that the user will have to accept before using the carpool service. this screen will be only shown once if it is enabled.
+* Set primary color: if you want to edit the primary color that is in the SDK screens, please add a color asset to you assets file (e.g assets.xcassets) and call it 'joy_primary', set the color value and the SDK will use it automatically.
 
 ### Start the SDK
 in the App file add the following lines: 
