@@ -102,6 +102,7 @@ override fun onCreate() {
     val startupActivity = joyMobilityApp.startupActivity()
     val intent = Intent(this, startupActivity)
     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
     startActivity(intent)
 }
 ```
