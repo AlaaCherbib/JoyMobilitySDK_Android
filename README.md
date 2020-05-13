@@ -32,7 +32,7 @@ and to your App build.gradle file:
 ```ruby
     dependencies { 
         ...
-        implementation 'com.github.AlaaCherbib:JoyMobility_SDK:1.0'
+        implementation 'com.github.Joy-Mobility:JoyMobility_SDK:1.0.1'
         implementation "androidx.lifecycle:lifecycle-runtime:2.0.0"
         implementation "androidx.lifecycle:lifecycle-extensions:2.0.0"
     }
