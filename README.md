@@ -29,6 +29,9 @@ it, simply add the following to your project build.gradle file:
 ```
 
 and to your App build.gradle file:
+
+* in case of in-app integration:
+
 ```ruby
     dependencies { 
         ...
@@ -37,9 +40,31 @@ and to your App build.gradle file:
         implementation "androidx.lifecycle:lifecycle-extensions:2.0.0"
     }
 ```
+
+* in case of a standalone App:
+
+```ruby
+    dependencies { 
+        ...
+        implementation 'com.github.Joy-Mobility:JoyMobility_SDK:1.0.1'
+        implementation 'com.github.JOY-Mobility.JoyMobility_SDK:landing:1.0.1'
+        implementation "androidx.lifecycle:lifecycle-runtime:2.0.0"
+        implementation "androidx.lifecycle:lifecycle-extensions:2.0.0"
+    }
+```
 Sync the gradle, clean and build the project.
 
 ## Getting Started
+
+### Add the launch activity to your app Manifest file **(FOR STANDALONE APP ONLY, SKIP THIS STEP IF YOU ARE INTEGRATING OUR SERVICES WITHIN YOUR OWN APPLICATION)**
+```
+<activity android:name="joy.mobility.landing.LandingActivity" >
+     <intent-filter>
+           <action android:name="android.intent.action.MAIN" />
+           <category android:name="android.intent.category.LAUNCHER" />
+     </intent-filter>
+</activity>
+```
 
 ### Add your configuration files
 After signing up, you will receive two json files, one is your GoogleService info file, which will be used to configure Firebase and Google maps services. this file should never be edited and must be added to your project. The second 'builder_config.json' file contains your specific keys, customer id, api keys and some config params, add this file as well to your project as it is mandatory to run the SDK.
@@ -59,13 +84,12 @@ import com.joy.library.JoyMobilityApp
 
 override fun onCreate() {
     super.onCreate()
-    val joyMobilityApp = JoyMobilityApp(this)
-    joyMobilityApp.configure()
+    joyMobilityApp = JoyMobilityApp(this).configure()
     ProcessLifecycleOwner.get().lifecycle.addObserver(JoyMobilityLifecycleObserver())
 }
 ```
 
-### Authenticate the user if you are disabling the SDK Sign up Module (SKIP THIS STEP IF YOU USE THE SDK'S SIGN UP SCREEN)
+### Authenticate the user if you are disabling the SDK Sign up Module **(SKIP THIS STEP IF YOU USE THE SDK'S SIGN UP SCREEN)**
 after the user logs in to his account in your app, please make this call to the authenticate the user for the carpool service:
 ```kotlin
     JoyMobilityApp.signInUser(
@@ -78,33 +102,13 @@ after the user logs in to his account in your app, please make this call to the 
     }
 ```
 
-### Start the first screen
-Now all you have to do is to choose your entry point, it can be a button or a Listview cell action, or a tab bar item if it is an in app integration, or in Application file if you are using the SDK as a white label product to generate a new standalone mobility app 
+### Start the first screen **(FOR IN_APP INTEGRATION ONLY, SKIP THIS STEP IF YOU ARE CREATING A STANDALONE APP)**
+Now all you have to do is to choose your entry point, it can be a button, a Listview cell action, a tab bar item ..etc
 
-* in case of in app integration:
 ```kotlin
     val startupActivity = JoyMobilityApp.startupActivity()
     val intent = Intent(this, startupActivity)
     startActivity(intent)
-```
-* in case of a standalone App:
-
-in Application file:
-
-```kotlin
-override fun onCreate() {
-    super.onCreate()
-    val joyMobilityApp = JoyMobilityApp(this)
-    joyMobilityApp.configure()
-    ProcessLifecycleOwner.get().lifecycle.addObserver(JoyMobilityLifecycleObserver())
-    
-    // Starting the new activity
-    val startupActivity = joyMobilityApp.startupActivity()
-    val intent = Intent(this, startupActivity)
-    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
-    startActivity(intent)
-}
 ```
 
 That is basically it, you're all set up now, the rest will be managed by the SDK. Happy coding !!
