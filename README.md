@@ -4,7 +4,9 @@
 [![](https://jitpack.io/v/AlaaCherbib/JoyMobility_SDK.svg)](https://jitpack.io/#AlaaCherbib/JoyMobility_SDK)
 [![License](https://img.shields.io/cocoapods/l/JoyMobilitySDK.svg?style=flat)](https://cocoapods.org/pods/JoyMobilitySDK)
 
-Use JoyMobilitySDK to integrate our Carpooling service within your own App.  You can also use it to have your own white label Mobility App with just few lines of Code. The SDK is fully written in Kotlin.
+Use JoyMobilitySDK to integrate our Carpooling service within your own App (**IN-APP INTEGRATION**). You can also use it to have your own white label Mobility App with just few lines of Code (**STANDALONE APP**). The SDK is fully written in Kotlin.
+
+Do you need support integrating our services or creating your own mobility App? Our team can take care of the whole development and publishing process for you.
 
 ![Feed](https://github.com/AlaaCherbib/JoyMobilitySDK_Android/blob/master/doc-assets/feed.png)
 ![Details](https://github.com/AlaaCherbib/JoyMobilitySDK_Android/blob/master/doc-assets/details.png)
@@ -69,15 +71,28 @@ Sync the gradle, clean and build the project.
 ```
 
 ### Add your configuration files
-After signing up, you will receive two json files, one is your GoogleService info file, which will be used to configure Firebase and Google maps services. this file should never be edited and must be added to your project. The second 'builder_config.json' file contains your specific keys, customer id, api keys and some config params, add this file as well to your project as it is mandatory to run the SDK.
+After signing up, you will receive two json files, one is your GoogleService info file, which will be used to configure Firebase and Google maps services. this file should never be edited and must be added to your project.
+
+If you have already a GoogleService file in your project, you can keep using it. We will need then your Cloud Massaging server key to be able to send you push notifications. Our technical team will be in touch with you to guide you through this.
+
+The second 'builder_config.json' file contains your specific keys, customer id, api keys and some config params, add this file as well to your project as it is mandatory to run the SDK.
 
 ### Customise the settings and appearance
-in builder_config.json you will be able to do the following customisations:
+#### in builder_config.json you will be able to do the following customisations:
 
 * Enable/Disable sign up module: Depending on your use case, you can choose to use our Login feature and signup your users through our authentication services or you can choose to use your own authentication system, in this case you will have to pass the user infos to the SDK before starting using it.
+
 * Enable/Disable pricing: The SDK comes with a pricing feature that suggests fees for sharing the rides. you can enable/disable this feature depending on your needs.
+
 * Show/Hide an initial app consent screen, this screen shows a customised text that the user will have to accept before using the carpool service. this screen will be only shown once if it is enabled.
-* Set primary color: if you want to edit the primary color that is in the SDK screens, please add a new color to your colors resources file and call it 'joy_primary', set the color value and the SDK will use it automatically.
+
+* Enable/Disable smart rides recommendations, which suggests rides to the users based on the events they are interested in, like football games or music concerts.
+
+* Set primary color: if you want to edit the primary color that is in the SDK screens.
+
+#### Add your company/brand logo
+
+A logo will be shown in the login, home and user consent activities (if consent activity enabled in builder_config), add your logo to your app assets folder. the file must be have the following path: `assets/logo.png`. if you choose not to add a logo file, no logo will be shown.
 
 ### Start the SDK
 in the App file add the following lines: 
