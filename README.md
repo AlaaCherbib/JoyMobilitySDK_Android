@@ -92,7 +92,7 @@ The second 'builder_config.json' file contains your specific keys, customer id, 
 
 #### Add your company/brand logo
 
-A logo will be shown in the login, home and user consent activities (if consent activity enabled in builder_config), add your logo to your app assets folder. the file must be have the following path: `assets/logo.png`. if you choose not to add a logo file, no logo will be shown.
+A logo will be shown in the login, home and user consent activities (if consent activity enabled in builder_config), add your logo to your app assets folder. the file must have the following path: `assets/logo.png`. if you choose not to add a logo file, no logo will be shown.
 
 ### Start the SDK
 in the App file add the following lines: 
