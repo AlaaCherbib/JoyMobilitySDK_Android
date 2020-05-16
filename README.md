@@ -56,7 +56,8 @@ Sync the gradle, clean and build the project.
 
 ## Getting Started
 
-### Add the launch activity to your app Manifest file **(FOR STANDALONE APP ONLY, SKIP THIS STEP IF YOU ARE INTEGRATING OUR SERVICES WITHIN YOUR OWN APPLICATION)**
+### Add the launch activity to your app Manifest file 
+**N.B:** THIS STEP IS FOR STANDALONE CARPOOL APP ONLY, IF YOU ARE INTEGRATING OUR SERVICES WITHIN YOUR OWN APPLICATION, PLEASE SKIP THIS STEP)
 ```
 <activity android:name="joy.mobility.landing.LandingActivity" >
      <intent-filter>
@@ -89,7 +90,8 @@ override fun onCreate() {
 }
 ```
 
-### Authenticate the user if you are disabling the SDK Sign up Module **(SKIP THIS STEP IF YOU USE THE SDK'S SIGN UP SCREEN)**
+### Authenticate the user if you are disabling the SDK Sign up Module 
+**N.B:** SKIP THIS STEP IF YOU USE THE SDK'S SIGN UP SCREEN)
 after the user logs in to his account in your app, please make this call to the authenticate the user for the carpool service:
 ```kotlin
     JoyMobilityApp.signInUser(
@@ -102,7 +104,8 @@ after the user logs in to his account in your app, please make this call to the 
     }
 ```
 
-### Start the first screen **(FOR IN_APP INTEGRATION ONLY, SKIP THIS STEP IF YOU ARE CREATING A STANDALONE APP)**
+### Start the first screen
+**N.B:** THIS STEP IS FOR IN-APP INTEGRATION ONLY, SKIP THIS STEP IF YOU ARE CREATING A STANDALONE CARPOOL APP
 Now all you have to do is to choose your entry point, it can be a button, a Listview cell action, a tab bar item ..etc
 
 ```kotlin
